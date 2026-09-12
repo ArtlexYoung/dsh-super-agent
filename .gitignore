@@ -1,0 +1,7 @@
+# Local maintainer notes are intentionally excluded from published history.
+.development/
+
+# Local package/build state.
+node_modules/
+dist/
+.DS_Store
