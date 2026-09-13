@@ -66,6 +66,13 @@ presets/
 
 开发计划、架构决策和测试记录位于本地 `.development/`，该目录已加入 `.gitignore`，不会进入提交或 npm tarball。发布前应在固定版本 Harness 上解析四个 YAML，执行 `dsh --profile my-profile --dump-config`，并确认宿主依赖和权限策略与目标部署一致。
 
+## 本地评测
+
+可在仓库外生成 `eval/` 评测工作区。该目录被 `.gitignore` 忽略，不会进入 Git 或 npm 包；其中的
+`datasets/manifest.json` 记录公开数据集的来源、许可证和固定 revision，`datasets/fixtures/` 只放置
+用于快速回归的小样本。评测应使用同一模型、上下文上限和任务集，对 baseline 与候选 preset 分别运行，
+记录成功率、输入/输出/总 token、延迟、工具调用数和可验收 artifact。没有真实模型或目标服务时，报告必须标记为 mock/replay，不能当作效果提升证据。
+
 ## 发布
 
 发布前执行：
