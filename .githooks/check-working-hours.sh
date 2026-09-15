@@ -6,7 +6,7 @@
 set -eu
 
 action=${1:-git operation}
-timezone=${DSH_SUPER_AGENT_TIMEZONE:-Asia/Singapore}
+timezone=Asia/Singapore
 export TZ="$timezone"
 
 set -- $(date '+%u %H %M')
